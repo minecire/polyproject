@@ -6,8 +6,8 @@
 namespace PolySDL
 {
 
-    int WINDOW_WIDTH = 1280;
-    int WINDOW_HEIGHT = 720;
+    int WINDOW_WIDTH = 1920;
+    int WINDOW_HEIGHT = 1080;
 
     SDL_Window *window;
     SDL_GLContext SDLGLContext;

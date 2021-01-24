@@ -7,7 +7,7 @@ CXXFlags := -m64
 INCLUDE := include
 LIB := lib
 LIBRARIES := -lGL -lGLU -lX11 -lpthread -lXrandr -lXi -ldl -lSDL2
-EXE := main
+EXE := PolyProject
 
 glad := lib/glad
 glad_inc := $(glad)/include
