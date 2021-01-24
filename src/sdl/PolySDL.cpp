@@ -2,10 +2,8 @@
 #include <SDL2/SDL_opengl.h>
 #include <stdio.h>
 #include "PolySDL.h"
-
 namespace PolySDL
 {
-
     int WINDOW_WIDTH = 1920;
     int WINDOW_HEIGHT = 1080;
 
@@ -16,7 +14,7 @@ namespace PolySDL
     void die(const char* msg)
     {
         printf("SDL %s, Error:%s\n", msg, SDL_GetError());
-        SDL_Quit();
+        endSDL();
         exit(1);
     }
     int initSDL()
@@ -44,13 +42,12 @@ namespace PolySDL
 
         SDLGLContext = SDL_GL_CreateContext(window);
 
-
+        SDL_Delay(2000); //delete this later once we actually have a loop set up
         return 0;
     }
 
     int endSDL()
     {
-        SDL_Delay(2000);
         SDL_GL_DeleteContext(SDLGLContext);
         SDL_DestroyWindow(window);
         SDL_Quit();

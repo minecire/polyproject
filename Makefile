@@ -20,7 +20,7 @@ run: clean all
 	./bin/$(EXE)
 
 bin/$(EXE): PolyEngine PolyGL PolySDL glad
-	$(CXX) $(CXXFlags) src/Main.cpp bin/PolyEngine.o bin/PolyGL.o bin/PolySDL.o bin/glad.o src/engine/PolyEngine.h src/gl/PolyGL.h src/sdl/PolySDL.h lib/glad/include/glad/glad.h lib/glad/include/KHR/khrplatform.h $(LIBRARIES) -o bin/$(EXE)
+	$(CXX) $(CXXFlags) src/Main.cpp bin/*.o src/engine/PolyEngine.h src/gl/PolyGL.h src/sdl/PolySDL.h lib/glad/include/glad/glad.h lib/glad/include/KHR/khrplatform.h $(LIBRARIES) -o bin/$(EXE)
 
 glad:
 	$(CC) -c $(CFlags) lib/glad/src/glad.c -o bin/glad.o
@@ -29,9 +29,11 @@ glad:
 PolyEngine:
 	$(CXX) -c $(CXXFlags) src/engine/PolyEngine.cpp $(LIBRARIES) -o bin/PolyEngine.o
 
-PolyGL:
+PolyGL: GLShaders
 	$(CXX) -c $(CXXFlags) src/gl/PolyGL.cpp $(LIBRARIES) -o bin/PolyGL.o
 
+GLShaders:
+	$(CXX) -c $(CXXFlags) src/gl/GLShaders.cpp $(LIBRARIES) -o bin/GLShaders.o
 PolySDL:
 	$(CXX) -c $(CXXFlags) src/sdl/PolySDL.cpp $(LIBRARIES) -o bin/PolySDL.o
 
