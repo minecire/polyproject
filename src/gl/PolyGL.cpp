@@ -1,6 +1,7 @@
 #include <iostream>
 #include <SDL2/SDL.h>
 
+#include "../Main.h"
 #include "../sdl/PolySDL.h"
 #include "PolyGL.h"
 
@@ -13,7 +14,7 @@ namespace PolyGL
 
     int initGL()
     {
-        gladLoadGLLoader((GLADloadproc) SDL_GL_GetProcAddress);
+        glewInit();
         glClearColor(0.0f, 0.0f, 0.0f, 0.0f);
         glViewport(0, 0, PolySDL::WINDOW_WIDTH, PolySDL::WINDOW_HEIGHT);
 
@@ -27,5 +28,10 @@ namespace PolyGL
 
 
         return 0;
+    }
+
+    void updateBuffers()
+    {
+        PolySDL::swapWindow();
     }
 }

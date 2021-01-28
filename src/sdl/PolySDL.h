@@ -9,6 +9,9 @@ namespace PolySDL
 
     int initSDL();
     int endSDL();
+
+    void swapWindow();
+    void processEvents();
 }
 
 #endif

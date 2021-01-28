@@ -1,5 +1,9 @@
+#include "Main.h"
 #include "sdl/PolySDL.h"
 #include "gl/PolyGL.h"
+#include "engine/PolyEngine.h"
+
+#include <iostream>
 
 int main()
 {
@@ -19,7 +23,7 @@ Then these processes will work amongst themselves:
     //This part is easy, right?
     PolySDL::initSDL();
     PolyGL::initGL();
-    //PolyEngine::initialize();
+    PolyEngine::initEngine();
 
     PolySDL::endSDL();
     return 0;

@@ -1,3 +1,4 @@
+#include "../Main.h"
 #include "PolyGL.h"
 #include <string>
 #include <iostream>

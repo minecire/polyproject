@@ -3,7 +3,8 @@
 
 namespace PolyEngine 
 {
-
+    extern bool exit;
+    int initEngine();
 }
 
 

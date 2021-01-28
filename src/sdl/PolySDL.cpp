@@ -1,13 +1,13 @@
-#include <SDL2/SDL.h>
-#include <SDL2/SDL_opengl.h>
 #include <stdio.h>
+#include "../Main.h"
 #include "PolySDL.h"
+
 namespace PolySDL
 {
     int WINDOW_WIDTH = 1920;
     int WINDOW_HEIGHT = 1080;
 
-    SDL_Window *window;
+    SDL_Window* window;
     SDL_GLContext SDLGLContext;
 
 
@@ -42,7 +42,8 @@ namespace PolySDL
 
         SDLGLContext = SDL_GL_CreateContext(window);
 
-        SDL_Delay(2000); //delete this later once we actually have a loop set up
+        SDL_GL_SetSwapInterval(1);
+
         return 0;
     }
 
@@ -53,5 +54,10 @@ namespace PolySDL
         SDL_Quit();
 
         return 0;
+    }
+
+    void swapWindow()
+    {
+        SDL_GL_SwapWindow(window);
     }
 }
